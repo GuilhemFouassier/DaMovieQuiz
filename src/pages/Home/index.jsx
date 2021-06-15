@@ -7,12 +7,12 @@ const Home = () => {
             { points === null ? 
                 <>
                     <h1>Jouez à DaMovieQuiz. 60 secondes pour trouver un maximum de réponses</h1>
-                    <Play />
+                    <Play text="play"/>
                 </>
                 :
                 <>
                     <h1>Vous avez { points } points. Rejouez ! </h1>
-                    <Play />
+                    <Play text="play again"/>
                 </>
             }
             

@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 
-const Play = () => {
+const Play = (props) => {
     return (
         <div>
-            <Link to="/game">Play</Link>
+            <Link to="/game">{props.text}</Link>
         </div>
     )
 }
