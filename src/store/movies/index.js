@@ -10,6 +10,9 @@ const movies = createSlice({
   reducers: {
     addMovies(state, { payload }) {
       state.list = [...state.list, payload]
+    },
+    editMovies (state, { payload }) {
+      state.list = [...state.list.map(item => item.id === payload.id ? payload : item  )]
     }
   }
 });
@@ -17,6 +20,7 @@ const movies = createSlice({
 // Actions
 export const {
   addMovies,
+  editMovies
 } = movies.actions;
 
 export const retrieveMovies = () => async dispatch => {

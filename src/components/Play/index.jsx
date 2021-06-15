@@ -1,7 +1,9 @@
+import { Link } from "react-router-dom"
+
 const Play = () => {
     return (
         <div>
-            <button>Play</button>
+            <Link to="/game">Play</Link>
         </div>
     )
 }
