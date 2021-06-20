@@ -35,6 +35,18 @@ export const retrieveMovies = () => async dispatch => {
   }
 }
 
+export const getOneMovie = (id) => async dispatch => {
+  try {
+    const response = await fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=7ea5f490261a949e52930517e1b4657c`, {
+      method: 'GET',
+    })
+    const data = await response.json();
+    dispatch(addMovies(data))
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 // Selectors
 export const getMovies = (state) => state.movies.list;
 

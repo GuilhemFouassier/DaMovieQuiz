@@ -1,7 +1,18 @@
+import { useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Play from '../../components/Play'
+import { getMovies, retrieveMovies } from '../../store/movies';
 
 const Home = () => {
     const points = localStorage.getItem('points');
+    const dispatch = useDispatch();
+    const movies = useSelector(getMovies);
+    useEffect(() => {
+        if (!movies.length) {
+          dispatch(retrieveMovies());
+        }  
+    })
     return (
         <main className="container">
             { points === null ? 

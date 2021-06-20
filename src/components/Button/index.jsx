@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types'
 
-const Input = ({ type, label, name, placeholder, step, minlength, maxlength, required, handleChange, value, error }) => (
+const Button = ({ type, label, name, placeholder, step, minlength, maxlength, required, handleChange, value, error, onClick }) => (
   <div className="flex flex-col mt-10">
-    <label htmlFor={name}>{label}</label>
-    <input
+    <button
     className="border p-1"
       type={type}
       name={name}
@@ -12,26 +11,30 @@ const Input = ({ type, label, name, placeholder, step, minlength, maxlength, req
       required={required}
       onChange={handleChange}
       value={value}
-    />
+      onClick={onClick}
+    >
+      {label}
+    </button>
     {error && <p className="text-red-500 text-sm">{error}</p>}
   </div>
 )
 
-Input.propTypes = {
+Button.propTypes = {
   type: PropTypes.string,
   placeholder: PropTypes.string,
   label: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   value: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
   required: PropTypes.bool,
 }
 
-Input.defaultProps = {
+Button.defaultProps = {
   type: 'text',
   required: false,
   placeholder: '',
   error: '',
 }
 
-export default Input;
+export default Button;
